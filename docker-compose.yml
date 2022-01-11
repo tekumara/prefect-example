@@ -1,0 +1,11 @@
+version: "3.8"
+
+# we use network_mode: bridge to use the default network rather than creating a new network
+
+services:
+  app:
+    image: prefect-example:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: bridge

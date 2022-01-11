@@ -2,22 +2,28 @@
 
 Prefect examples
 
-## Development
+## Usage
 
-### Prerequisites
+Set your API key:
 
-- make
-- node (required for pyright. Install via `brew install node`)
-- python >= 3.7
+```
+ export PREFECT__CLOUD__API_KEY=....
+```
 
-### Getting started
+Create the project (required only once):
 
-To get started run `make install`. This will:
+```
+prefect create project example --skip-if-exists
+```
 
-- install git hooks for formatting & linting on git push
-- create the virtualenv in _.venv/_
-- install this package in editable mode
+Install the kube prefect agent:
 
-Then run `make` to see the options for running checks, tests etc.
+```
+make prefect-k8s-install
+```
 
-`. .venv/bin/activate` activates the virtualenv. When the requirements in `setup.py` change, the virtualenv is updated by the make targets that use the virtualenv.
+Register the flow:
+
+```
+make prefect-register
+```

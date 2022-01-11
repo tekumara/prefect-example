@@ -52,6 +52,15 @@ pyright: node_modules $(venv)
 test: $(venv)
 	$(venv)/bin/pytest
 
+prefect-local: $(venv)
+	$(venv)/bin/python flows/example.py
+
+prefect-register: $(venv)
+	$(venv)/bin/python -m flows.register
+
+prefect-k8s-install: $(venv)
+	prefect agent kubernetes install -k "$$PREFECT__CLOUD__API_KEY" --rbac --label kube | kubectl apply -f -
+
 ## run pre-commit git hooks on all files
 hooks: $(venv)
 	$(venv)/bin/pre-commit run --show-diff-on-failure --color=always --all-files --hook-stage push

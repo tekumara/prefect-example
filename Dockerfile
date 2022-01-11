@@ -4,7 +4,7 @@ WORKDIR /workdir/
 
 # python dependencies
 COPY setup.py pyproject.toml ./
-RUN pip install --no-cache-dir .
+RUN pip install --no-cache-dir -e .
 
 # code
 COPY . .

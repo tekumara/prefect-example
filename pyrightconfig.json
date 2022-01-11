@@ -1,0 +1,7 @@
+{
+    "strictListInference": true,
+    "strictDictionaryInference": true,
+    "strictParameterNoneValue": true,
+    "reportTypedDictNotRequiredAccess": false,
+    "reportPrivateImportUsage": false
+}

@@ -1,0 +1,15 @@
+{
+  "template": "git@github.com:tekumara/python-typed-template.git",
+  "commit": "48a1e01c1665ba2988579d01aaff6b266a71d997",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "repo_name": "prefect-example",
+      "package_name": "flows",
+      "distribution_name": "flows",
+      "description": "Prefect examples",
+      "_template": "git@github.com:tekumara/python-typed-template.git"
+    }
+  },
+  "directory": null
+}

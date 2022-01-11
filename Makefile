@@ -52,11 +52,11 @@ pyright: node_modules $(venv)
 test: $(venv)
 	$(venv)/bin/pytest
 
-prefect-local: $(venv)
-	$(venv)/bin/python flows/example.py
+prefect-run: $(venv)
+	$(venv)/bin/prefect run -m flows.example
 
 prefect-register: $(venv)
-	$(venv)/bin/python -m flows.register
+	$(venv)/bin/prefect register --project example -m flows.example
 
 prefect-k8s-install: $(venv)
 	prefect agent kubernetes install -k "$$PREFECT__CLOUD__API_KEY" --rbac --label kube | kubectl apply -f -

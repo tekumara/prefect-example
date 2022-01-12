@@ -4,10 +4,21 @@ Prefect multi-module flow running on Kubernetes.
 
 ## Getting started
 
+Prerequisites:
+
+- [k3d](https://github.com/rancher/k3d) to create a kubes cluster
+- python 3
+
 Install virtualenv:
 
 ```
 make install
+```
+
+Create the kubes cluster:
+
+```
+make cluster
 ```
 
 Install the kubes prefect agent (set your kube context before running this):

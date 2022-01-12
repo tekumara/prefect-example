@@ -1,6 +1,8 @@
 ## create k3s cluster
 cluster:
 	k3d cluster create prefect --registry-create prefect-registry:0.0.0.0:5000 --wait
+	@echo -e "\nTo use your cluster set:\n"
+	@echo "export KUBECONFIG=$$(k3d kubeconfig write prefect)"
 
 ## install kubes agent
 prefect-k8s-install: $(venv)

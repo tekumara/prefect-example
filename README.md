@@ -6,7 +6,8 @@ Prefect multi-module flow running on Kubernetes.
 
 Prerequisites:
 
-- [k3d](https://github.com/rancher/k3d) to create a kubes cluster
+- docker compose
+- [k3d](https://github.com/rancher/k3d) to create a k3s kubes cluster
 - python 3
 
 Install virtualenv:
@@ -45,6 +46,12 @@ Create the project (required only once):
 
 ```
 prefect create project example --skip-if-exists
+```
+
+Build and push the docker image:
+
+```
+make publish
 ```
 
 Register the flow:

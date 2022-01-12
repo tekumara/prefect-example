@@ -1,5 +1,3 @@
-from pathlib import Path
-
 from setuptools import find_packages, setup
 
 setup(
@@ -14,6 +12,7 @@ setup(
     install_requires=["prefect~=0.15"],
     extras_require={
         "dev": [
+            "autoflake~=1.4",
             "black~=21.10b0",
             "build~=0.7",
             "isort~=5.9",

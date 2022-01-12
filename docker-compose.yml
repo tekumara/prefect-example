@@ -10,6 +10,5 @@ services:
       dockerfile: Dockerfile
     environment:
       - PREFECT__CLOUD__API_KEY
-      - PREFECT__CONTEXT__FLOW_RUN_ID
     network_mode: bridge
-    command: ['prefect', 'execute', 'flow-run']
+    command: ['prefect', 'run', '-n', 'hello-flow', '--execute']

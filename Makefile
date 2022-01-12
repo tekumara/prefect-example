@@ -4,8 +4,8 @@ cluster:
 	@echo -e "\nTo use your cluster set:\n"
 	@echo "export KUBECONFIG=$$(k3d kubeconfig write prefect)"
 
-## install kubes agent
-prefect-k8s-install: $(venv)
+## install prefect agent into kubes cluster
+install-kube-agent: $(venv)
 	prefect agent kubernetes install -k "$(PREFECT__CLOUD__API_KEY)" --rbac --label kube | kubectl apply -f -
 
 ## build docker image
@@ -23,12 +23,16 @@ publish: build push
 prefect-register: $(venv)
 	$(venv)/bin/prefect register --project example -m flows.example
 
-## run flow on kubes
-prefect-run: $(venv)
-	$(venv)/bin/prefect run -n "hello-flow" --watch
-
-## run flow locally
+## run flow in local venv
 prefect-run-local: $(venv)
 	$(venv)/bin/prefect run -m flows.example
+
+## run registered flow on kubes via agent
+prefect-run-kubes: $(venv)
+	$(venv)/bin/prefect run -n "hello-flow" --watch
+
+## run registered flow locally in docker
+prefect-run-agentless:
+	docker compose run app
 
 include *.mk

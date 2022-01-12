@@ -25,7 +25,7 @@ make cluster
 Install the kubes prefect agent (set your kube context before running this):
 
 ```
-make prefect-k8s-install
+make install-kube-agent
 ```
 
 ## Usage
@@ -54,13 +54,27 @@ Build and push the docker image:
 make publish
 ```
 
+Run the flow in the local venv:
+
+```
+make prefect-run-local
+```
+
 Register the flow:
 
 ```
 make prefect-register
 ```
 
-Run the flow on kubes:
+You can now run the registered flow. When running the registered flow, a flow run will be created on Prefect Cloud which captures the status and logs.
+
+Run the registered flow locally in docker without an agent:
+
+```
+make prefect-run-agentless
+```
+
+Trigger the registered flow to run on kubes via the agent:
 
 ```
 make prefect-run

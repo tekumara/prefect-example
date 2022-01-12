@@ -1,4 +1,4 @@
-FROM prefecthq/prefect:latest-python3.9
+FROM python:3.9-slim
 
 WORKDIR /workdir/
 

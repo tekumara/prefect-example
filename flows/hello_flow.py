@@ -25,6 +25,8 @@ with Flow(
         cpu_limit=1,
         cpu_request=1,
         memory_limit="1Gi",
+        # needed to get pull latest version of a mutated image tag
+        image_pull_policy="Always",
     ),
 ) as flow:
     hello_task()

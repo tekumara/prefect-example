@@ -9,7 +9,7 @@ setup(
     package_data={
         "": ["py.typed"],
     },
-    install_requires=["prefect~=0.15"],
+    install_requires=["prefect~=0.15", "dask_kubernetes~=2021.10.0"],
     extras_require={
         "dev": [
             "autoflake~=1.4",

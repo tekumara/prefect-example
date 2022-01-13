@@ -1,6 +1,6 @@
 # flows
 
-Prefect multi-module flow running on Kubernetes.
+Prefect multi-module flows running on Kubernetes.
 
 ## Getting started
 
@@ -54,30 +54,42 @@ Build and push the docker image:
 make publish
 ```
 
-Run the flow in the local venv:
+Run the hello flow in the local venv:
 
 ```
-make prefect-run-local
+make run-hello-local
 ```
 
-Register the flow:
+Register the flows:
 
 ```
-make prefect-register
+make register
 ```
 
-You can now run the registered flow. When running the registered flow, a flow run will be created on Prefect Cloud which captures the status and logs.
+You can now run the registered flows. When running the registered flows, a flow run will be created on Prefect Cloud which captures the status and logs.
 
-Run the registered flow locally in docker without an agent:
-
-```
-make prefect-run-agentless
-```
-
-Trigger the registered flow to run on kubes via the agent:
+Run the registered hello flow locally in docker without an agent:
 
 ```
-make prefect-run
+make run-hello-agentless
+```
+
+Trigger the registered hello flow to run on kubes via the agent:
+
+```
+make run-hello-kubes
+```
+
+Trigger the registered dask flow to run on kubes via the agent:
+
+```
+make run-dask-kubes
+```
+
+Show pods other than the prefect agent:
+
+```
+kubectl get pod -l app!=prefect-agent
 ```
 
 ## Contributing

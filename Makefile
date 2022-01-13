@@ -21,11 +21,11 @@ publish: build push
 
 ## register flow
 prefect-register: $(venv)
-	$(venv)/bin/prefect register --project example -m flows.example
+	$(venv)/bin/prefect register --project example -m flows.hello_flow
 
 ## run flow in local venv
 prefect-run-local: $(venv)
-	$(venv)/bin/prefect run -m flows.example
+	$(venv)/bin/prefect run -m flows.hello_flow
 
 ## run registered flow on kubes via agent
 prefect-run-kubes: $(venv)

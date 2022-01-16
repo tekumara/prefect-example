@@ -13,31 +13,14 @@ Prerequisites:
 - [k3d](https://github.com/rancher/k3d) to create a k3s kubes cluster
 - python 3
 
-Install virtualenv:
+To start:
 
-```
-make install
-```
-
-Create the kubes cluster:
-
-```
-make cluster
-```
-
-Install the kubes prefect agent (set your kube context before running this):
-
-```
-make install-kube-agent
-```
+- Install virtualenv: `make install`
+- Create the kubes cluster: `make cluster`
+- Set your kube context
+- Install the kubes perfect agent: `make install-kube-agent`
 
 ## Usage
-
-Get started:
-
-```
-make install
-```
 
 Set your API key:
 

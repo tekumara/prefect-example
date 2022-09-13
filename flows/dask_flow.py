@@ -10,16 +10,22 @@ from prefect.storage.module import Module
 # Define some tasks for us to run in our flow
 @task
 def extract() -> list:
+    logger = prefect.context.get("logger")
+    logger.info("extract")
     return [1, 2, 3, 4, 5, 6]
 
 
 @task
 def transform(number: int) -> int:
+    logger = prefect.context.get("logger")
+    logger.info(f"transform {number}")
     return number * 2
 
 
 @task
 def load(numbers: list) -> list:
+    logger = prefect.context.get("logger")
+    logger.info("load")
     return [i for i in numbers if i]
 
 

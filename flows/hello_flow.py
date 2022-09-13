@@ -20,7 +20,7 @@ with Flow(
     "hello-flow",
     storage=Module(__name__),
     run_config=KubernetesRun(
-        image="prefect-registry:5000/prefect-example:v1",
+        image="prefect-registry:5555/prefect-example:v1",
         labels=["kube"],
         cpu_limit=1,
         cpu_request=1,

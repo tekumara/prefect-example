@@ -23,7 +23,7 @@ def load(numbers: list) -> list:
     return [i for i in numbers if i]
 
 
-image = "prefect-registry:5000/prefect-example:v1"
+image = "prefect-registry:5555/prefect-example:v1"
 
 with Flow(
     "Dask Kubernetes Flow",

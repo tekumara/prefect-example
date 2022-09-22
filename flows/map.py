@@ -31,6 +31,7 @@ with Flow(
     "map-flow",
 ) as flow:
     batches = fetch_batches()
+    # unmapped is needed to process all inputs see https://github.com/PrefectHQ/prefect/issues/5927
     counts = count_rows.map(batches, upstream_tasks=[unmapped(setup())])
     summary(counts)
 

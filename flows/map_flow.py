@@ -6,24 +6,27 @@ from prefect import Flow, task, unmapped
 
 @task
 def setup() -> str:
+    logger = prefect.context.get("logger")
+    logger.info("setup")
     return "done"
 
 
 @task
 def fetch_batches() -> List[str]:
-    return ["batch"] * 10
+    return [f"batch {i}" for i in range(10)]
 
 
 @task
 def count_rows(batch: str) -> int:
+    logger = prefect.context.get("logger")
+    logger.info(f"{batch}")
     return 1
 
 
 @task
 def summary(count: List[int]) -> None:
     logger = prefect.context.get("logger")
-    total = sum(count)
-    logger.info(f"Num batches: {len(count)} Num rows: {total}")
+    logger.info(f"{count} Num batches: {len(count)} Num rows: {sum(count)}")
     return None
 
 

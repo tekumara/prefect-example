@@ -22,7 +22,7 @@ publish: build push
 
 ## register flows
 register: $(venv)
-	$(venv)/bin/prefect register --project example -m flows.hello_flow -m flows.dask_flow
+	$(venv)/bin/prefect register --project example -m flows.hello_flow -m flows.dask_flow -m flows.parent_flow -m flows.child_flow
 
 ## run hello-flow in local venv
 run-hello-local: $(venv)
@@ -39,5 +39,9 @@ run-hello-agentless:
 ## run registered dask flow on kubes via agent
 run-dask-kubes: $(venv)
 	$(venv)/bin/prefect run -n "Dask Kubernetes Flow" --watch
+
+## run registered parent flow on kubes via agent
+run-parent: $(venv)
+	$(venv)/bin/prefect run -n "parent" --watch
 
 include *.mk

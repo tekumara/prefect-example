@@ -1,0 +1,2 @@
+export KUBECONFIG=$HOME/.k3d/kubeconfig-prefect.yaml
+export PREFECT__CLOUD__API_KEY=xxxxxx

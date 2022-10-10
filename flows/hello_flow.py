@@ -9,11 +9,11 @@ import flows.another_module
 
 
 @task
-def hello_task() -> None:
+def hello_task(name: str) -> None:
     logger = prefect.context.get("logger")
     logger.info(f"sys.path = {sys.path}")
     logger.info(flows.another_module.msg)
-    logger.info("Goodbye world!")
+    logger.info(f"Goodbye {name}!")
 
 
 with Flow(
@@ -29,4 +29,8 @@ with Flow(
         image_pull_policy="Always",
     ),
 ) as flow:
-    hello_task()
+    hello_task("world")
+
+
+if __name__ == "__main__":
+    flow.run()

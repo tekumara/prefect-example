@@ -11,4 +11,3 @@ services:
     environment:
       - PREFECT__CLOUD__API_KEY
     network_mode: bridge
-    command: ['prefect', 'run', '-n', 'hello-flow', '--execute']

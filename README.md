@@ -4,6 +4,7 @@ Prefect multi-module flows running on Kubernetes:
 
 - [hello-flow](flows/hello_flow.py) a basic hello world flow
 - [Dask Kubernetes Flow](flows/dask_flow.py) a flow that uses an ephemeral Dask cluster on Kubernetes
+- see [flows/](flows/) for more!
 
 ## Getting started
 

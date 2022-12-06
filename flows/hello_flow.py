@@ -13,6 +13,8 @@ def hello_task(name: str) -> None:
     logger = prefect.context.get("logger")
     logger.info(f"sys.path = {sys.path}")
     logger.info(flows.another_module.msg)
+    logger.info(f"{prefect.config.cloud.api=}")
+    logger.info(f"{prefect.context.config.server.ui.endpoint=}")
     logger.info(f"Goodbye {name}!")
 
 

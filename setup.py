@@ -9,18 +9,18 @@ setup(
     package_data={
         "": ["py.typed"],
     },
-    install_requires=["prefect==1.4.0", "prefect-memory-profiling==1.0.0", "dask_kubernetes==2022.7.0"],
+    install_requires=["prefect==1.4.1", "prefect-memory-profiling==1.0.0", "dask_kubernetes==2023.3.2"],
     extras_require={
         "dev": [
-            "autoflake~=1.4",
-            "black~=22.10",
-            "build~=0.7",
-            "isort~=5.9",
-            "flake8~=4.0",
-            "flake8-annotations~=2.7",
+            "autoflake~=2.0",
+            "black~=23.3",
+            "build~=0.10",
+            "isort~=5.12",
+            "flake8~=6.0",
+            "flake8-annotations~=3.0",
             "flake8-colors~=0.1",
-            "pre-commit~=2.15",
-            "pytest~=6.2",
+            "pre-commit~=2.20",
+            "pytest~=7.3",
         ]
     },
 )

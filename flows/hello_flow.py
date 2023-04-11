@@ -1,4 +1,5 @@
 import sys
+from typing import Tuple
 
 import prefect
 from prefect import Flow, task
@@ -9,13 +10,20 @@ import flows.another_module
 
 
 @task
-def hello_task(name: str) -> None:
+def goodbye_task(first: str, last: str) -> None:
+    logger = prefect.context.get("logger")
+    logger.info(f"Goodbye {first} {last}!")
+
+
+@task
+def hello_task(first: str, last: str) -> Tuple[str, str]:
     logger = prefect.context.get("logger")
     logger.info(f"sys.path = {sys.path}")
     logger.info(flows.another_module.msg)
     logger.info(f"{prefect.config.cloud.api=}")
     logger.info(f"{prefect.context.config.server.ui.endpoint=}")
-    logger.info(f"Goodbye {name}!")
+    logger.info(f"Hello {first} {last}")
+    return first, last
 
 
 with Flow(
@@ -31,8 +39,8 @@ with Flow(
         image_pull_policy="Always",
     ),
 ) as flow:
-    hello_task("world")
-
+    first, last = hello_task("baby", "yoda")
+    goodbye_task(first, last)
 
 if __name__ == "__main__":
     flow.run()
